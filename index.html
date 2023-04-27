@@ -12,11 +12,48 @@
       <link type="text/css" rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1 aria-label="Het is gank"></h1>
+    <div class="flag" id="flag1"></div>
+    <div  class="flag" id="flag2"></div>
+                        
+    <h1><img src="./gank.png" alt="Het is Gank" width="200px" /></h1>
+      
     <div class="content">
         <p>10 juni 2023 21:00<br />
             Merelstraat 25, 9000 Gent</p>
         <a class="button" href="tel:0032495647823">Let me know</a>
     </div>
+      
+    <script type="text/javascript">
+        window.onscroll = function() {scrollFunction()};
+        
+        let animate = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        mediaQuery.addEventListener('change', () => {
+            //console.log(mediaQuery.media, mediaQuery.matches);
+            animate = !mediaQuery.matches;
+        });
+        
+        function scrollFunction() {
+            if (!animate) return;
+            
+            // make background smaller when scrolling down
+            // from 0px to 100px
+            // from vw200 to vw 100
+            const scrollLength = 100;
+            const scrollPosition = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+            
+            if (scrollPosition < scrollLength) {
+                document.body.style.backgroundSize = ((scrollLength + 100) - scrollPosition) + "vw";
+                document.getElementById("flag1").style.left = - 100 + scrollPosition + "vw";
+                document.getElementById("flag2").style.left = 130 - scrollPosition + "vw";
+            }
+            if (scrollPosition >= scrollLength) {
+                document.body.style.backgroundSize = "100vw";
+                document.getElementById("flag1").style.left = 0;
+                document.getElementById("flag2").style.left = 130-100 + "vw";
+            }
+            
+        }  
+    </script>
   </body>
 </html>
