@@ -16,6 +16,10 @@
     <div  class="flag" id="flag2"></div>
                         
     <h1><img src="./gank.png" alt="Het is Gank" width="200px" /></h1>
+    
+    
+    <div class="scroll">
+    </div>
       
     <div class="content">
         <p>10 juni 2023 21:00<br />
@@ -46,11 +50,14 @@
                 document.body.style.backgroundSize = ((scrollLength + 100) - scrollPosition) + "vw";
                 document.getElementById("flag1").style.left = - 100 + scrollPosition + "vw";
                 document.getElementById("flag2").style.left = 130 - scrollPosition + "vw";
+                document.getElementsByClassName("scroll")[0].style.opacity = 1 - scrollPosition/100 + "";
+                console.log(1 - scrollPosition/100 + "")
             }
             if (scrollPosition >= scrollLength) {
                 document.body.style.backgroundSize = "100vw";
                 document.getElementById("flag1").style.left = 0;
                 document.getElementById("flag2").style.left = 130-100 + "vw";
+                document.getElementsByClassName("scroll")[0].style.opacity = "0";
             }
             
         }  

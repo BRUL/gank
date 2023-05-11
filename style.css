@@ -86,6 +86,10 @@ h1 img {
     left: 30vw;
 }
 
+.scroll {
+    display: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
     body {
         background-size: 200vw;
@@ -101,6 +105,22 @@ h1 img {
     #flag2 {
         left: -70vw;
     }
-        
+    
+    .scroll {
+        display: block;
+        width: 3em;
+        left: calc(50vw - 3em / 2);
+        box-sizing: border-box;
+        top: 80vh;
+        margin: 0 auto;
+        padding: 1em;
+        border-radius: 2em;
+        background-color: #B33414;
+        text-align: center;
+        position: fixed;
+    }
+    .scroll::before {
+        content: "V";
+    }
     
 }
